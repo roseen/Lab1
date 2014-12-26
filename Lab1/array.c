@@ -28,3 +28,8 @@ void addWords2Array(char* filename,char (*array_importantwords)[60],int N1)
     }
     fclose(fp); /*Closing is very important!*/
 }
+
+void removeFromArray(char (*array_importantwords)[60],int array_length,int remove_position) {
+    int i;
+    for(i=remove_position; i<array_length-1 ; i++) *array_importantwords[i]=*array_importantwords[i+1];
+}

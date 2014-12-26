@@ -15,18 +15,18 @@
 #include <ctype.h>
 
 /* declaration of a Stack structure  */
-typedef struct Stack{
+typedef struct Stack {
     char* strdata;		 /* the string content */
     struct Stack* pnext;};	 /* pointer to the next node in the Stack - reference to the same type, hence the name: self-referential struct */
 
 typedef struct Stack StrStack;     /* this is just an alias to struct Stack*/
 /* now it suffices to use "StrStack" to denote the new type rather than "struct Stack"*/
 
-/* declaration of a structure of pointers to the Stack*/
-/* this is just a neat way to keep these pointers under the same structure, otherwise we could just have two independent pointer variables, pbegin and pend */
+/* declaration of a structure of pointer to the Stack*/
+/* this is just a neat way to keep this pointer under the same structure, otherwise we could just have one independent pointer variable - ptop */
 typedef struct Stack_address {
-    StrStack* pbegin;	 /* pointer to the beginning of the Stack */
-    StrStack* pend;};	 /* pointer to the end of the Stack */
+    StrStack* ptop;	 /* pointer to the beginning of the Stack */
+};
 
 typedef struct Stack_address StackAddress;     /* this is just an alias to struct Stack_address*/
 
@@ -40,6 +40,9 @@ StackAddress Pop(StackAddress ptr,char* str);
 
 /* This function returns 1 if the Stack is empty, 0 otherwise */
 int isEmpty(StackAddress ptr);
+
+/* Returns 1 if word exists, 0 otherwise */
+int exists(StackAddress ptr, const char* str);
 
 /* This function prints out the Stack content */
 void printStrStack(StackAddress ptr);

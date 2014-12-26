@@ -12,6 +12,7 @@
 		372433B51A4D652F0013004F /* array.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433AE1A4D652F0013004F /* array.c */; };
 		372433B61A4D652F0013004F /* removelastCR.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433B01A4D652F0013004F /* removelastCR.c */; };
 		372433B71A4D652F0013004F /* countwords.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433B21A4D652F0013004F /* countwords.c */; };
+		372433BA1A4DA12F0013004F /* filterWords.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433B81A4DA12F0013004F /* filterWords.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		372433B11A4D652F0013004F /* removelastCR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = removelastCR.h; sourceTree = "<group>"; };
 		372433B21A4D652F0013004F /* countwords.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = countwords.c; sourceTree = "<group>"; };
 		372433B31A4D652F0013004F /* countwords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = countwords.h; sourceTree = "<group>"; };
+		372433B81A4DA12F0013004F /* filterWords.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filterWords.c; sourceTree = "<group>"; };
+		372433B91A4DA12F0013004F /* filterWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filterWords.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				372433AF1A4D652F0013004F /* array.h */,
 				372433AD1A4D652F0013004F /* stack.c */,
 				372433AC1A4D652F0013004F /* stack.h */,
+				372433B81A4DA12F0013004F /* filterWords.c */,
+				372433B91A4DA12F0013004F /* filterWords.h */,
 			);
 			path = Lab1;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				372433B51A4D652F0013004F /* array.c in Sources */,
+				372433BA1A4DA12F0013004F /* filterWords.c in Sources */,
 				372433B41A4D652F0013004F /* stack.c in Sources */,
 				372433B61A4D652F0013004F /* removelastCR.c in Sources */,
 				372433A61A4D64F00013004F /* main.c in Sources */,

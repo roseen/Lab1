@@ -16,6 +16,7 @@
 
 
 void addWords2Array(char* filename,char (*array_importantwords)[60],int N1);
+void removeFromArray(char (*array_importantwords)[60],int array_length,int remove_position);
 
 
 #endif /* defined(__LaborationEtt__array__) */

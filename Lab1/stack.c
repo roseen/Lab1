@@ -26,16 +26,15 @@ StackAddress Push(StackAddress saddress,const char* str)
 {
     /* create the node by allocating memory and assigning strdata*/
     StrStack* pnewnode = (StrStack*)malloc(sizeof(StrStack));
-    pnewnode->pnext = NULL; 			/* This is going to be the last element so its pnext field should point towards NULL */
+    pnewnode->pnext = saddress.ptop; 			/* This is going to be the last element so its pnext field should point towards NULL */
     pnewnode->strdata = (char*)malloc((strlen(str)+1)*sizeof(char)); /* allocate memory to store a string */
     strcpy(pnewnode->strdata,str);		/* copy the requested string str to the new memory allocation */
     
-    if (saddress.pend==NULL && saddress.pbegin==NULL) {	/* if the Stack is empty */
-        saddress.pend = pnewnode;			/* both saddress.pbegin and saddress.pend should point to the new node */
-        saddress.pbegin = pnewnode;
+    if (saddress.ptop==NULL) {	/* if the Stack is empty */
+        		/*  saddress.ptop should point to the new node */
+        saddress.ptop = pnewnode;
     } else {					/* if this is not the first node in the Stack*/
-        saddress.pend->pnext = pnewnode;		/* 1) link the Stack to the new node */
-        saddress.pend = pnewnode; 	        /* 2) update the pointer pend to the end of the Stack*/
+        saddress.ptop = pnewnode; 	        /* 2) update the pointer ptop to the top of the Stack*/
     }
     
     return saddress;
@@ -49,15 +48,15 @@ StackAddress Pop(StackAddress saddress,char* str)
 {
     StrStack * auxptr;
     
-    if (saddress.pbegin!=NULL) { /* if the Stack is not empty */
+    if (saddress.ptop!=NULL) { /* if the Stack is not empty */
         
-        auxptr = saddress.pbegin;	/* store aside the pointer to the beginning of the Stack and
+        auxptr = saddress.ptop;	/* store aside the pointer to the beginning of the Stack and
                                      at the same time (more importantly) the pointer to the node that will be deStackd (removed) */
         
-        saddress.pbegin = saddress.pbegin->pnext;	/* update the pointer to the beginning of the Stack */
-        if (saddress.pbegin==NULL)  /* if after removing the node the Stack becomes empty,.. */
+        saddress.ptop = saddress.ptop->pnext;	/* update the pointer to the beginning of the Stack */
+        if (saddress.ptop==NULL)  /* if after removing the node the Stack becomes empty,.. */
         {
-            saddress.pend = NULL;    /* ..., set the pend pointer to NULL, too. */
+            saddress.ptop = NULL;    /* ..., set the ptop pointer to NULL, too. */
         }
         
         /* The Stack pointers have been updated now is the time to work on the deStackd node. */
@@ -73,27 +72,42 @@ StackAddress Pop(StackAddress saddress,char* str)
 }
 
 
-
 /* This function returns 1 if the Stack is empty, 0 otherwise */
 int isEmpty(StackAddress saddress)
-{ return saddress.pbegin == NULL; /*return the status of the pbegin pointer*/
+{ return saddress.ptop == NULL; /*return the status of the ptop pointer*/
 }
 
+/* Returns 1 if word exists, 0 otherwise */
+int existsStrStack(StackAddress saddress, const char* str)
+{
+    if (1==1) {
+        
+    }
+    while (saddress.ptop) { // equivalent to while (ptop != NULL)
+        if (strcmp(saddress.ptop->strdata,str) == 0) {
+            return 1;
+        }
+        saddress.ptop = saddress.ptop->pnext;   // This change of saddress will not affect the original
+    }
+                                                 
+    return 0;
+    
+}
 
 /* This function prints out the Stack content */
 void printStrStack(StackAddress saddress)
 {
     /* if Stack is empty */
-    if (isEmpty(saddress)) { // equivalent to if (pbegin == NULL)
+    if (isEmpty(saddress)) { // equivalent to if (ptop == NULL)
         printf("The Stack is empty.\n" );
     } else {
         printf( "The Stack is:\n" );
         /* while not the end of the Stack */
-        while (saddress.pbegin) { // equivalent to while (pbegin != NULL)
-            printf( "%s --> ", saddress.pbegin->strdata );
-            saddress.pbegin = saddress.pbegin->pnext;   /* This change of saddress will not affect the original StackAddress variable in the main program
+        while (saddress.ptop) { // equivalent to while (ptop != NULL)
+            printf( "%s --> ", saddress.ptop->strdata );
+            saddress.ptop = saddress.ptop->pnext;   /* This change of saddress will not affect the original StackAddress variable in the main program
                                                          because saddress is passed to the function by value. This means that a local copy of the 								original StackAddress variable is made and it disappears when the function execution is over.
-                                                         We just use it here to traverse the Stack without any consequences for the original pbegin and 								pend pointers pointing to the beginning and the end of the Stack, respectively.*/
+                                                         We just use it here to traverse the Stack without any consequences for the original ptop pointer pointing to the top of the Stack.*/
             
         }
         printf( "NULL\n" );
@@ -106,14 +120,13 @@ StackAddress deleteStack(StackAddress saddress)
     StrStack* ptemp;
     
     while ( !isEmpty(saddress)  ) {		/* traverse (iterate) through the Stack */
-        ptemp = saddress.pbegin;	    	/* store aside the pointer to the current beginning of the list */
-        saddress.pbegin = saddress.pbegin->pnext; /* update the address of the beginning of the Stack -> move to the next */
+        ptemp = saddress.ptop;	    	/* store aside the pointer to the current beginning of the list */
+        saddress.ptop = saddress.ptop->pnext; /* update the address of the beginning of the Stack -> move to the next */
         
         free(ptemp->strdata);			/* free memory for the deStackd node, first its field strdata and ...*/
         free(ptemp);				/* ... then the entire node structure (see also Pop for extra comments) */
     }
-    saddress.pbegin=NULL;			/* at the end set both pbegin and pend to NULL - the Stack does not exist any longer */
-    saddress.pend=NULL;
+    saddress.ptop=NULL;			/* at the end set both ptop and pend to NULL - the Stack does not exist any longer */
     
     return saddress;
     
