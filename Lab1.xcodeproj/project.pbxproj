@@ -13,6 +13,7 @@
 		372433B61A4D652F0013004F /* removelastCR.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433B01A4D652F0013004F /* removelastCR.c */; };
 		372433B71A4D652F0013004F /* countwords.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433B21A4D652F0013004F /* countwords.c */; };
 		372433BA1A4DA12F0013004F /* filterWords.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433B81A4DA12F0013004F /* filterWords.c */; };
+		372433BD1A4E01DD0013004F /* duolist.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433BB1A4E01DD0013004F /* duolist.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		372433B31A4D652F0013004F /* countwords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = countwords.h; sourceTree = "<group>"; };
 		372433B81A4DA12F0013004F /* filterWords.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filterWords.c; sourceTree = "<group>"; };
 		372433B91A4DA12F0013004F /* filterWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filterWords.h; sourceTree = "<group>"; };
+		372433BB1A4E01DD0013004F /* duolist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = duolist.c; sourceTree = "<group>"; };
+		372433BC1A4E01DD0013004F /* duolist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = duolist.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 				372433AC1A4D652F0013004F /* stack.h */,
 				372433B81A4DA12F0013004F /* filterWords.c */,
 				372433B91A4DA12F0013004F /* filterWords.h */,
+				372433BB1A4E01DD0013004F /* duolist.c */,
+				372433BC1A4E01DD0013004F /* duolist.h */,
 			);
 			path = Lab1;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				372433B61A4D652F0013004F /* removelastCR.c in Sources */,
 				372433A61A4D64F00013004F /* main.c in Sources */,
 				372433B71A4D652F0013004F /* countwords.c in Sources */,
+				372433BD1A4E01DD0013004F /* duolist.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +268,7 @@
 				372433AB1A4D64F00013004F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

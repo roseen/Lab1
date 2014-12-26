@@ -29,6 +29,10 @@ int main()
     
     //Print array.
     int i;
+    for (i=0;i<N1;i++) {
+        printf("%s\n",array_importantwords[i]);
+    }
+    printf("%d\n",N1);
 
     //Print stack.
     printStrStack(strStack);
