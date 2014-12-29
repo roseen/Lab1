@@ -14,6 +14,7 @@
 		372433B71A4D652F0013004F /* countwords.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433B21A4D652F0013004F /* countwords.c */; };
 		372433BA1A4DA12F0013004F /* filterWords.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433B81A4DA12F0013004F /* filterWords.c */; };
 		372433BD1A4E01DD0013004F /* duolist.c in Sources */ = {isa = PBXBuildFile; fileRef = 372433BB1A4E01DD0013004F /* duolist.c */; };
+		AF4819CF1A51BE3100D57240 /* DLLArray.c in Sources */ = {isa = PBXBuildFile; fileRef = AF4819CD1A51BE3100D57240 /* DLLArray.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,8 +32,8 @@
 /* Begin PBXFileReference section */
 		372433A21A4D64F00013004F /* Lab1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lab1; sourceTree = BUILT_PRODUCTS_DIR; };
 		372433A51A4D64F00013004F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		372433AC1A4D652F0013004F /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
-		372433AD1A4D652F0013004F /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
+		372433AC1A4D652F0013004F /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = stack.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		372433AD1A4D652F0013004F /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = stack.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		372433AE1A4D652F0013004F /* array.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = array.c; sourceTree = "<group>"; };
 		372433AF1A4D652F0013004F /* array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = array.h; sourceTree = "<group>"; };
 		372433B01A4D652F0013004F /* removelastCR.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = removelastCR.c; sourceTree = "<group>"; };
@@ -41,8 +42,10 @@
 		372433B31A4D652F0013004F /* countwords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = countwords.h; sourceTree = "<group>"; };
 		372433B81A4DA12F0013004F /* filterWords.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filterWords.c; sourceTree = "<group>"; };
 		372433B91A4DA12F0013004F /* filterWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filterWords.h; sourceTree = "<group>"; };
-		372433BB1A4E01DD0013004F /* duolist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = duolist.c; sourceTree = "<group>"; };
-		372433BC1A4E01DD0013004F /* duolist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = duolist.h; sourceTree = "<group>"; };
+		372433BB1A4E01DD0013004F /* duolist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = duolist.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		372433BC1A4E01DD0013004F /* duolist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = duolist.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		AF4819CD1A51BE3100D57240 /* DLLArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DLLArray.c; sourceTree = "<group>"; };
+		AF4819CE1A51BE3100D57240 /* DLLArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLArray.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				372433B91A4DA12F0013004F /* filterWords.h */,
 				372433BB1A4E01DD0013004F /* duolist.c */,
 				372433BC1A4E01DD0013004F /* duolist.h */,
+				AF4819CD1A51BE3100D57240 /* DLLArray.c */,
+				AF4819CE1A51BE3100D57240 /* DLLArray.h */,
 			);
 			path = Lab1;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 				372433B61A4D652F0013004F /* removelastCR.c in Sources */,
 				372433A61A4D64F00013004F /* main.c in Sources */,
 				372433B71A4D652F0013004F /* countwords.c in Sources */,
+				AF4819CF1A51BE3100D57240 /* DLLArray.c in Sources */,
 				372433BD1A4E01DD0013004F /* duolist.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

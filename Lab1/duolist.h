@@ -17,7 +17,7 @@
 /* This is a declaration of the structure for a node in the list */
 typedef struct list{
     char* strdata;		 /* the string content */
-    struct list* pnext;};	 /* pointer to the next node in the list - reference to the same type, hence the name: self-referential struct */
+    struct list* pnext;	 /* pointer to the next node in the list - reference to the same type, hence the name: self-referential struct */
     struct list* pprev;};	 /* pointer to the previous node in the list - reference to the same type, hence the name: self-referential struct */
 
 typedef struct list StrList;     /* this is just an alias to struct lis*/
@@ -36,7 +36,7 @@ void removeAll(StrList** pbegin);
 void freeNode(StrList** pnode);
 
 /* This function returns 1 if the list is empty, 0 otherwise */
-int isEmpty(StrList* pbegin);
+int isDuolistEmpty(StrList* pbegin);
 
 /* This function prints out the list content */
 void printStrList(StrList* ptr);

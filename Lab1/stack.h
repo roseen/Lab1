@@ -39,7 +39,7 @@ StackAddress Push(StackAddress ptr,const char* str);
 StackAddress Pop(StackAddress ptr,char* str);
 
 /* This function returns 1 if the Stack is empty, 0 otherwise */
-int isEmpty(StackAddress ptr);
+int isStackEmpty(StackAddress ptr);
 
 /* Returns 1 if word exists, 0 otherwise */
 int exists(StackAddress ptr, const char* str);

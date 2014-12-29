@@ -12,20 +12,22 @@
 #include "array.h"
 #include "stack.h"
 #include "filterWords.h"
+#include "duolist.h"
+#include "DLLArray.h"
 
 
 int main()
 {
     //Add original words to array.
-    int N1=countwords("/Users/Amanda/Desktop/LaborationEtt/LaborationEtt/originalwords.txt");
+    int N1=countwords("/Users/Henrik/Documents/Lab1/Lab1/originalwords.txt");
     char (*array_importantwords)[60];
     array_importantwords=(char(*)[60])malloc(N1*60*sizeof(char));
-    addWords2Array("/Users/Amanda/Desktop/LaborationEtt/LaborationEtt/originalwords.txt",array_importantwords,N1);
+    addWords2Array("/Users/Henrik/Documents/Lab1/Lab1/originalwords.txt",array_importantwords,N1);
     //Add unimportant words to stack.
-    int N2=countwords("/Users/Amanda/Desktop/LaborationEtt/LaborationEtt/unimportantwords.txt");
+    int N2=countwords("/Users/Henrik/Documents/Lab1/Lab1/unimportantwords.txt");
     StackAddress strStack;
     strStack.ptop = NULL;	/* both pointers are initialised and set to NULL - there is no Stack yet*/
-    strStack = addWordsToStack("/Users/Amanda/Desktop/LaborationEtt/LaborationEtt/unimportantwords.txt",strStack,N2);
+    strStack = addWordsToStack("/Users/Henrik/Documents/Lab1/Lab1/unimportantwords.txt",strStack,N2);
     
     //Print array.
     int i;
@@ -45,6 +47,21 @@ int main()
         printf("%s\n",array_importantwords[i]);
     }
     printf("%d\n",N1);
+    
+    
+    /* Try DLL */
+    StrList* beginPtr = NULL;
+    for (i=0; i<N1; i++) {
+        insertStr(&beginPtr,array_importantwords[i]);
+    }
+    
+    /* Try Array DLL */
+    int * DLLArray;
+    DLLArray = initDLLArray();
+    
+    for (i=0; i<N1; i++) {
+        insertDLLArray(DLLArray, array_importantwords[i]);
+    }
     
     free(array_importantwords);
     deleteStack(strStack);

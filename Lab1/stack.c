@@ -73,7 +73,7 @@ StackAddress Pop(StackAddress saddress,char* str)
 
 
 /* This function returns 1 if the Stack is empty, 0 otherwise */
-int isEmpty(StackAddress saddress)
+int isStackEmpty(StackAddress saddress)
 { return saddress.ptop == NULL; /*return the status of the ptop pointer*/
 }
 
@@ -98,7 +98,7 @@ int existsStrStack(StackAddress saddress, const char* str)
 void printStrStack(StackAddress saddress)
 {
     /* if Stack is empty */
-    if (isEmpty(saddress)) { // equivalent to if (ptop == NULL)
+    if (isStackEmpty(saddress)) { // equivalent to if (ptop == NULL)
         printf("The Stack is empty.\n" );
     } else {
         printf( "The Stack is:\n" );
@@ -119,7 +119,7 @@ StackAddress deleteStack(StackAddress saddress)
 {
     StrStack* ptemp;
     
-    while ( !isEmpty(saddress)  ) {		/* traverse (iterate) through the Stack */
+    while ( !isStackEmpty(saddress)  ) {		/* traverse (iterate) through the Stack */
         ptemp = saddress.ptop;	    	/* store aside the pointer to the current beginning of the list */
         saddress.ptop = saddress.ptop->pnext; /* update the address of the beginning of the Stack -> move to the next */
         

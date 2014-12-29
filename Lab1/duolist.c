@@ -8,55 +8,50 @@
 
 #include "duolist.h"
 
-void initDuo() {
-    StrList* beginPtr[26];
-    for (i=0,i<25,i++) beginPtr[i] = NULL    
-}
-
-int main(void)
-{
-    char inputStr[21]; 	        /* static string of max len 20 characters to store user's input from the console */
-    StrList* beginPtr = NULL;    /* this is the pointer with the address of the first node in the list - the beginning of the list */
-				/* NULL means that initially there are no nodes */
-    
-    do { /* add words provided by the user - the loop completes when the user writes end or END */
-        printf("Enter another word to add to the list (or write END to finish this step): ");
-        scanf("%s",inputStr);
-        if ( strcmp(inputStr,"end") && strcmp(inputStr,"END") ) /* nodes are added provided that it is not END */
-        {
-            insertStr(&beginPtr,inputStr);	/* insert user's word to the list */
-        }
-        
-    } while ( strcmp(inputStr,"end") && strcmp(inputStr,"END") ); /* the stopping condition: library fun STRCMP is used to see if the strings match */
-    
-    if (!isEmpty(beginPtr)) {
-        printf("This is the current content of the list:\n");
-        printStrList(beginPtr); /* print the list content */
-        
-        do {  /* remove words provided by the user - the loop completes when the user writes end or END */
-            printf("Enter word to remove from the list (or write END to finish this step): ");
-            scanf("%s",&inputStr);
-            if ( strcmp(inputStr,"end") && strcmp(inputStr,"END") ) /* list will be searched for a given word provided that it is not END */
-            {
-                removeStr(&beginPtr,inputStr);	/* remove user's word from the list */
-            }
-            
-        } while ( strcmp(inputStr,"end") && strcmp(inputStr,"END")); /* the stopping condition */
-        
-        if (!isEmpty(beginPtr)) {
-            printf("This is the current content of the list:\n");
-            printStrList(beginPtr);
-            removeAll(&beginPtr); /* It is very important to free memory and remove the entire list at the end. */
-        } else {
-            printf("The final list is empty.\n");
-        }
-        
-    } else {
-        printf("Nothing has been added to the list.... program quits..\n");
-    }
-    
-    return 0;
-}
+//int main(void)
+//{
+//    char inputStr[21]; 	        /* static string of max len 20 characters to store user's input from the console */
+//    StrList* beginPtr = NULL;    /* this is the pointer with the address of the first node in the list - the beginning of the list */
+//				/* NULL means that initially there are no nodes */
+//    
+//    do { /* add words provided by the user - the loop completes when the user writes end or END */
+//        printf("Enter another word to add to the list (or write END to finish this step): ");
+//        scanf("%s",inputStr);
+//        if ( strcmp(inputStr,"end") && strcmp(inputStr,"END") ) /* nodes are added provided that it is not END */
+//        {
+//            insertStr(&beginPtr,inputStr);	/* insert user's word to the list */
+//        }
+//        
+//    } while ( strcmp(inputStr,"end") && strcmp(inputStr,"END") ); /* the stopping condition: library fun STRCMP is used to see if the strings match */
+//    
+//    if (!isDuolistEmpty(beginPtr)) {
+//        printf("This is the current content of the list:\n");
+//        printStrList(beginPtr); /* print the list content */
+//        
+//        do {  /* remove words provided by the user - the loop completes when the user writes end or END */
+//            printf("Enter word to remove from the list (or write END to finish this step): ");
+//            scanf("%s",&inputStr);
+//            if ( strcmp(inputStr,"end") && strcmp(inputStr,"END") ) /* list will be searched for a given word provided that it is not END */
+//            {
+//                removeStr(&beginPtr,inputStr);	/* remove user's word from the list */
+//            }
+//            
+//        } while ( strcmp(inputStr,"end") && strcmp(inputStr,"END")); /* the stopping condition */
+//        
+//        if (!isDuolistEmpty(beginPtr)) {
+//            printf("This is the current content of the list:\n");
+//            printStrList(beginPtr);
+//            removeAll(&beginPtr); /* It is very important to free memory and remove the entire list at the end. */
+//        } else {
+//            printf("The final list is empty.\n");
+//        }
+//        
+//    } else {
+//        printf("Nothing has been added to the list.... program quits..\n");
+//    }
+//    
+//    return 0;
+//}
 
 
 /* ---------------   function definition block -----------------------*/
@@ -159,7 +154,7 @@ void removeAll(StrList** pbegin){ /* QUESTION: Why do we have a pointer to a poi
     
     StrList* ptemp;
     
-    while ( !isEmpty(*pbegin)  ) {
+    while ( !isDuolistEmpty(*pbegin)  ) {
         ptemp = *pbegin;	    /* store aside the pointer to the beginning of the list */
         *pbegin = (*pbegin)->pnext; /* update *pbegin */
         freeNode(&ptemp);           /* remove the top node pointed to by ptemp set aside above  - memory is freed and the pointer set to NULL*/
@@ -167,7 +162,7 @@ void removeAll(StrList** pbegin){ /* QUESTION: Why do we have a pointer to a poi
 }
 
 /* Return 1 if the list is empty, 0 otherwise */
-int isEmpty(StrList* pbegin)
+int isDuolistEmpty(StrList* pbegin)
 {
     return pbegin == NULL; /*return the status of the pbegin pointer*/
 }
@@ -176,7 +171,7 @@ int isEmpty(StrList* pbegin)
 void printStrList(StrList* pbegin)
 {
     /* if list is empty */
-    if (isEmpty(pbegin)) { // equivalent to if (ptr == NULL)
+    if (isDuolistEmpty(pbegin)) { // equivalent to if (ptr == NULL)
         printf("List is empty.\n" );
     } else {
         printf( "The list is:\n" );
