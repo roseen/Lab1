@@ -26,6 +26,8 @@ typedef struct list StrList;     /* this is just an alias to struct lis*/
 /* This function adds a new node in the list with the content strdata = str */
 void insertStr(StrList** pbegin,const char* str);
 
+StrList* searchStr(StrList** pbegin,const char* str);
+
 /* This function removes the node in the list that matches the argument string str */
 void removeStr(StrList** pbegin,const char* str);
 

@@ -17,15 +17,4 @@
 
 #endif /* defined(__Lab1__DLLArray__) */
 
-struct StrList ** initDLLArray();
-
-/* This function adds a new node in the list with the content strdata = str */
-void insertDLLArray(int* DLLArray,const char* str);
-
-/* This function removes the node in the list that matches the argument string str */
-void removeDLLArray(int* DLLArray,const char* str);
-
-/* This function removes all the elements in the list and sets the pointer to the beginning of the network to NULL */
-void removeAllDLLArray(int* DLLArray);
-
 int selectArray(const char* str);

@@ -69,6 +69,43 @@ int main()
         printStrList(beginPtr[i]);
     }
     
+    /* Test Search String */
+    char *str1="rere";
+    char *str2="rare";
+    StrList* word;
+    
+    j= selectArray(str1);
+    word = searchStr(&beginPtr[j],str1);
+    if (word!=NULL) {
+        printf("Found string %s.\n",word->strdata);
+    }
+    else {
+        printf("Found string %s.\n",str1);
+    }
+ 
+    j= selectArray(str2);
+    word = searchStr(&beginPtr[j],str2);
+    if (word!=NULL) {
+        printf("Found string %s.\n",word->strdata);
+    }
+    else {
+        printf("NOT found string %s.\n",str2);
+    }
+    
+    /* Test of remove */
+     char *str3="vhis";
+     char *str4="vn";
+     
+     j= selectArray(str3);
+    printStrList(beginPtr[j]);
+     removeStr(&beginPtr[j],str3);
+    printStrList(beginPtr[j]);
+
+    j= selectArray(str4);
+    removeStr(&beginPtr[j],str4);
+    printStrList(beginPtr[j]);
+    
+    
     free(array_importantwords);
     deleteStack(strStack);
 }

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lab1/duolist.c"
-            timestampString = "441654290.280226"
+            timestampString = "441662811.300244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "insertStr()"
             landmarkType = "7">
          </BreakpointContent>
