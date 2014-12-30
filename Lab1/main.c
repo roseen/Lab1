@@ -30,7 +30,7 @@ int main()
     strStack = addWordsToStack("/Users/Henrik/Documents/Lab1/Lab1/unimportantwords.txt",strStack,N2);
     
     //Print array.
-    int i;
+    int i,j;
     for (i=0;i<N1;i++) {
         printf("%s\n",array_importantwords[i]);
     }
@@ -50,17 +50,23 @@ int main()
     
     
     /* Try DLL */
-    StrList* beginPtr = NULL;
-    for (i=0; i<N1; i++) {
-        insertStr(&beginPtr,array_importantwords[i]);
+//    StrList* beginPtr = NULL;
+//    for (i=0; i<N1; i++) {
+//        insertStr(&beginPtr,array_importantwords[i]);
+//    }
+//    printStrList(beginPtr);
+
+    /* Try DLL */
+    StrList* beginPtr[26];
+    for (i=0; i<26; i++) {
+        beginPtr[i] = NULL;
     }
-    
-    /* Try Array DLL */
-    int * DLLArray;
-    DLLArray = initDLLArray();
-    
     for (i=0; i<N1; i++) {
-        insertDLLArray(DLLArray, array_importantwords[i]);
+        j= selectArray(array_importantwords[i]);
+        insertStr(&beginPtr[j],array_importantwords[i]);
+    }
+    for (i=0; i<26; i++) {
+        printStrList(beginPtr[i]);
     }
     
     free(array_importantwords);

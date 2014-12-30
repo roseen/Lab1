@@ -17,7 +17,7 @@
 
 #endif /* defined(__Lab1__DLLArray__) */
 
-int * initDLLArray();
+struct StrList ** initDLLArray();
 
 /* This function adds a new node in the list with the content strdata = str */
 void insertDLLArray(int* DLLArray,const char* str);
