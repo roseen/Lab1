@@ -95,8 +95,9 @@ int existsStrStack(StackAddress saddress, const char* str)
 }
 
 /* This function prints out the Stack content */
-void printStrStack(StackAddress saddress)
+void printStack(StackAddress saddress)
 {
+    int nOfWords=0;
     /* if Stack is empty */
     if (isStackEmpty(saddress)) { // equivalent to if (ptop == NULL)
         printf("The Stack is empty.\n" );
@@ -105,12 +106,13 @@ void printStrStack(StackAddress saddress)
         /* while not the end of the Stack */
         while (saddress.ptop) { // equivalent to while (ptop != NULL)
             printf( "%s --> ", saddress.ptop->strdata );
+            nOfWords++;
             saddress.ptop = saddress.ptop->pnext;   /* This change of saddress will not affect the original StackAddress variable in the main program
                                                          because saddress is passed to the function by value. This means that a local copy of the 								original StackAddress variable is made and it disappears when the function execution is over.
                                                          We just use it here to traverse the Stack without any consequences for the original ptop pointer pointing to the top of the Stack.*/
             
         }
-        printf( "NULL\n" );
+        printf( "\nTotal number of words on Stack: %d\n\n",nOfWords);
     }
 }
 

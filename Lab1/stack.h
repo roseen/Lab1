@@ -45,7 +45,7 @@ int isStackEmpty(StackAddress ptr);
 int exists(StackAddress ptr, const char* str);
 
 /* This function prints out the Stack content */
-void printStrStack(StackAddress ptr);
+void printStack(StackAddress ptr);
 
 /* This function deletes or rather frees memory allocated for the entire Stack, including memory for fields .strdata */
 StackAddress deleteStack(StackAddress ptr);

@@ -29,6 +29,16 @@ void addWords2Array(char* filename,char (*array_importantwords)[60],int N1)
     fclose(fp); /*Closing is very important!*/
 }
 
+void printArray(char (*array_importantwords)[60],int nOfWords) {
+    int i;
+    for (i=0;i<nOfWords;i++) {
+        printf("%s --> ",array_importantwords[i]);
+    }
+    printf("\nTotal number of words in Array: %d\n\n",nOfWords);
+
+    
+}
+
 void removeFromArray(char (*array_importantwords)[60],int array_length,int remove_position) {
     int i;
     for(i=remove_position; i<array_length-1 ; i++) *array_importantwords[i]=*array_importantwords[i+1];
