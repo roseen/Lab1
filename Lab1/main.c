@@ -20,6 +20,7 @@ int main()
 {
     char wordsfile[]="/Users/Henrik/Documents/Lab1/Lab1/originalwords.txt";
     char unimportantwords[]="/Users/Henrik/Documents/Lab1/Lab1/unimportantwords.txt";
+    char output2file[]="/Users/Henrik/Documents/Lab1/Lab1/outputfile.txt";
     int nOfWords;
     int nOfNonImportant;
     int i,j;
@@ -51,21 +52,20 @@ int main()
 
     
     /********* Create a Double Linked List and load it with all Important Words */
-
-    StrList* listDoubleLinked[26]; //Pointer to Array with 26 slots
-    for (i=0; i<26; i++) listDoubleLinked[i] = NULL;
-    for (i=0; i<nOfWords; i++) insertStr(&listDoubleLinked[selectArray(arrayImportantWords[i])],arrayImportantWords[i]);
-    
-    //Print array.
-    printArray(arrayImportantWords, nOfWords);
+    StrList* listDoubleLinkedBegin[26];//Pointer to Arrays with 26 slots, for begin pointers.
+    StrList* listDoubleLinkedEnd[26]; //Pointer to Arrays with 26 slots, for end pointers.
+    for (i=0; i<26; i++) {
+        listDoubleLinkedBegin[i] = NULL;
+        listDoubleLinkedEnd[i] = NULL;
+    }
+    for (i=0; i<nOfWords; i++) insertStr(&listDoubleLinkedBegin[selectArray(arrayImportantWords[i])],&listDoubleLinkedEnd[selectArray(arrayImportantWords[i])],arrayImportantWords[i]);
     
     /********* Test to Search for a String */
-
     StrList* word;
     char *searchWords[2] = {"rere", "rare"};
     for (i=0; i<2; i++) {
-        printf("Trying word %s.\n",searchWords[i]);
-        word = searchStr(&listDoubleLinked[selectArray(searchWords[i])],searchWords[i]);
+        printf("Trying to search for word %s.\n",searchWords[i]);
+        word = searchStr(&listDoubleLinkedBegin[selectArray(searchWords[i])],searchWords[i]);
         if (word!=NULL) {
             printf("Found string %s.\n",word->strdata);
         }
@@ -75,16 +75,45 @@ int main()
     }
 
     /********* Test to remove Strings */
-    char *removeWords[2] = {"vhis", "vn"};
-    for (i=0; i<2; i++) {
+    char *removeWords[3] = {"vhis", "vn", "vn"};
+    for (i=0; i<3; i++) {
         printf("Trying to remove word %s.\n",removeWords[i]);
-        j= selectArray(removeWords[i]);
-        printStrList(listDoubleLinked[j]);
-        removeStr(&listDoubleLinked[j],removeWords[i]);
-        printStrList(listDoubleLinked[j]);
+        j= selectArray(removeWords[i]); /* Find what array to use */
+        printStrList(listDoubleLinkedBegin[j]); /* Print the list before */
+        removeStr(&listDoubleLinkedBegin[j],&listDoubleLinkedEnd[j],removeWords[i]); /* Try to remove from list */
+        printStrList(listDoubleLinkedBegin[j]); /* Print the list after */
     }
 
+    /********* Export to file */
+    FILE *f = fopen(output2file , "w");
+    int count=0;
+    if (f == NULL)
+    {
+        printf("Error opening file!\n");
+    }
+    else {
+        for (i=0; i<26; i++) {
+            if (listDoubleLinkedBegin[i] != NULL) { /* Check if list is Empty or not */
+                count = count + printStrList2File(f,listDoubleLinkedBegin[i]);
+            }
+        }
+        fclose(f);
+        printf("%d words written to file\n",count);
+    }
     
+    /********* Print to screen */
+    char *printLetters[2] = {"c", "s"};
+    for (i=0; i<2; i++) {
+        j= selectArray(printLetters[i]); /* Find what array to use */
+        printStrList(listDoubleLinkedBegin[j]); /* Print the list */
+       
+    }
+    /********* Print second and second last */
+    for (i=0; i<26; i++) {
+        print2ndFirstnLast(listDoubleLinkedBegin[i], listDoubleLinkedEnd[i]);
+    }
+    
+    /********* Clean up */
     free(arrayImportantWords);
     deleteStack(stackNonImportantWords);
 }

@@ -24,15 +24,16 @@ typedef struct list StrList;     /* this is just an alias to struct lis*/
 /* now it suffices to use "StrList" to denote the new type rather than "struct list"*/
 
 /* This function adds a new node in the list with the content strdata = str */
-void insertStr(StrList** pbegin,const char* str);
+void insertStr(StrList** pbegin,StrList** pend,const char* str);
 
+/* This function search for str within list */
 StrList* searchStr(StrList** pbegin,const char* str);
 
 /* This function removes the node in the list that matches the argument string str */
-void removeStr(StrList** pbegin,const char* str);
+void removeStr(StrList** pbegin,StrList** pend,const char* str);
 
 /* This function removes all the elements in the list and sets the pointer to the beginning of the network to NULL */
-void removeAll(StrList** pbegin);
+void removeAll(StrList** pbegin,StrList** pend);
 
 /* This function frees memory allocated earlier for the node in the list */
 void freeNode(StrList** pnode);
@@ -41,7 +42,13 @@ void freeNode(StrList** pnode);
 int isDuolistEmpty(StrList* pbegin);
 
 /* This function prints out the list content */
-void printStrList(StrList* ptr);
+void printStrList(StrList* pbegin);
+
+/* This function prints the list content to a file */
+int printStrList2File(FILE *f,StrList* pbegin);
+
+/* This function prints the second and second last words in the list */
+void print2ndFirstnLast(StrList* pbegin,StrList* pend);
 
 
 #endif /* defined(__Lab1__duolist__) */
